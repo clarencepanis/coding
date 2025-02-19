@@ -1,0 +1,247 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  background: rgba(119, 255, 225, 0.1) !important;
+  height: 100vh;
+  margin: 3rem 0 0 0;
+  padding: 0 1rem;
+  font-size: 1rem;
+  transition: .5s;
+}
+.body-placement {
+  padding-left: calc(68px + 1rem);
+}
+
+a {
+  text-decoration: none;
+}
+.header {
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  background: #FAF9F6;
+  z-index: 99;
+  transition: .5s;
+}
+
+.header-toggle {
+  color: #4723D9;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.user-img {
+  width: 50px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+.user-img i {
+  font-size: 40px;
+}
+
+.nav {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.side-navbar {
+  position: fixed;
+  top: 0;
+  left: -30%;
+  width: 68px;
+  height: 100vh;
+  background-color: #FAF9F6;
+  padding: .5rem 1rem 0 0;
+  transition: .5s;
+  z-index: 100;
+}
+
+.nav_logo,
+.nav_link {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  align-items: center;
+  column-gap: 1rem;
+  padding: .5rem 0 .5rem 1.5rem;
+}
+
+.nav_logo {
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-decoration: none;
+}
+
+.nav_logo img {
+  height: 50px;
+  width: auto;
+  max-width: 50px;
+  margin-left: -10%;
+  margin: 0;
+  transition: 0.3s ease;
+}
+
+.nav_logo .logo-name {
+  color: black;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+}
+
+.side-navbar:not(.show) .nav_logo img {
+  height: 50px;
+  margin-left: -10%;
+}
+
+.nav_link {
+  position: relative;
+  text-decoration: none;
+  color: black;
+  margin-bottom: 1.5rem;
+  transition: .3s;
+}
+
+.nav_link:hover {
+  color: blue;
+}
+.nav_link .icon {
+  margin-right: 5px;
+  font-size: 25px;
+  color: black;
+}
+.nav_icon {
+  font-size: 1.25rem;
+}
+
+.show {
+  left: 0;
+}
+
+
+/* ------------------------ Active Link --------------------------*/
+.active {
+  color: black;
+}
+
+.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 4px;
+  height: 32px;
+  background-color: blue;
+}
+
+/* ------------------------ Responsiveness --------------------------*/
+@media screen and (min-width: 768px) {
+  body {
+    margin: calc(3rem + 1rem) 0 0 0;
+    padding-left: calc(68px + 2rem);
+  }
+
+  .header {
+    height: calc(3rem + 1rem);
+    padding: 0 2rem 0 calc(68px + 2rem);
+  }
+
+  .header_img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .header_img img {
+    width: 45px;
+  }
+
+  .side-navbar {
+    left: 0;
+    padding: 1rem 1rem 0 0;
+  }
+
+  .show {
+    width: calc(68px + 156px);
+  }
+
+  .body-placement  {
+    padding-left: calc(68px + 188px);
+  }
+}
+
+/* ------------------------ Dashboard --------------------------*/
+/*
+.content-container {
+  
+}
+*/
+.dashboard-container {
+  background: white;
+  margin-top: 10%;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, .2);
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+table { 
+  width: 100%; 
+  border-collapse: collapse; 
+}
+th, td { 
+  padding: 12px 15px; 
+  text-align: left; 
+  border-bottom: 1px solid #ddd; 
+}
+th { 
+  background-color: #f8f9fa; 
+  color: #333; 
+}
+tr:hover { 
+  background-color: #f5f5f5; 
+}
+/* ------------------------ SideBar Overlay --------------------------*/
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(1px);
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  z-index: 99;
+}
+
+.sidebar-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
