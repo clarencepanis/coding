@@ -13,14 +13,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
     if (toggle && nav && bodypd && headerpd) {
       toggle.addEventListener('click', () => {
         nav.classList.toggle('show-navbar');
-        toggle.classList.toggle('bx-x');
+        //toggle.classList.toggle('bx-x');
         bodypd.classList.toggle('body-placement');
         headerpd.classList.toggle('body-placement');
         overlay.classList.toggle('active');
+
       });
 
-        // For Closing sidebar
-        overlay.addEventListener('click', () => {
+      // For Closing sidebar
+      overlay.addEventListener('click', () => {
         nav.classList.remove('show-navbar');
         toggle.classList.remove('bx-x');
         bodypd.classList.remove('body-placement');
@@ -29,39 +30,35 @@ document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
-  
   showNavbar('header-toggle', 'nav-bar', 'body-placement', 'header');
-
   // for active link in sidebar
-  const linkColor = document.querySelectorAll('.nav_link');
-
+  const linkColor = document.querySelectorAll('.nav-links');
   function colorLink() {
     if (linkColor) {
       linkColor.forEach(l => l.classList.remove('active'));
       this.classList.add('active');
     }
   }
-
   linkColor.forEach(l => l.addEventListener('click', colorLink));
 });
 
 function realTimeDateUpdate() {
   const realTimeDate = new Date();
-  
+
   // Update date
-  const options = { 
-      weekday: 'long', 
-      year: 'numeric', 
-      month: 'long', 
-      day: 'numeric' 
+  const options = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
   };
   document.getElementById('current-date').textContent = realTimeDate.toLocaleDateString('en-US', options);
-  
+
   // Update time
   document.getElementById('current-time').textContent = realTimeDate.toLocaleTimeString('en-US', {
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit'
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
   });
 }
 // Update Invocation
