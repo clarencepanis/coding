@@ -42,7 +42,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
   linkColor.forEach(l => l.addEventListener('click', colorLink));
 
   // Update Invocation
-  
+  realTimeDateUpdate();
+  setInterval(realTimeDateUpdate, 1000);
 });
 
 function realTimeDateUpdate() {
