@@ -40,6 +40,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   linkColor.forEach(l => l.addEventListener('click', colorLink));
+
+  // Update Invocation
+  realTimeDateUpdate();
+  setInterval(realTimeDateUpdate, 1000);
 });
 
 function realTimeDateUpdate() {
@@ -57,10 +61,6 @@ function realTimeDateUpdate() {
   // Update time
   document.getElementById('current-time').textContent = realTimeDate.toLocaleTimeString('en-US', {
     hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit'
+    minute: '2-digit'
   });
 }
-// Update Invocation
-realTimeDateUpdate();
-setInterval(realTimeDateUpdate, 1000);
